@@ -27,6 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+raw_styles.css
 
 # vercel
 .vercel
