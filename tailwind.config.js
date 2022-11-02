@@ -5,15 +5,23 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
-    colors: {
-      primary:'#5124F2',
-      secondary:'#C6F224',
-      primaryLight:'#DAD3F5',
-      secondaryLight:'#EDF5D3',
-      bgDark:'#171326',
-      bgLight:'#F2F0F7',
-    }
+    extend: {
+      colors: {
+        primary:{
+          DEFAULT:'#5124F2',
+          light:'#DAD3F5',
+          dark:'#32188F',
+        },
+        secondary:{
+          DEFAULT:'#F2245F',
+          light:'#F5D3DD',
+          dark:'#8F183A',
+        },
+        bgDark:'#171326',
+        bgLight:'#F2F0F7',
+      }
+    },
+    
   },
   plugins: [],
 }
