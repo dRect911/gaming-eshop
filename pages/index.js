@@ -1,27 +1,77 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
+// import Masonry from 'masonry-layout';
+const Layout = dynamic(() => import('react-masonry-list'), {
+  ssr: false,
+});
+
+import Typed from 'typed.js'
+
 import { client } from '../lib/client';
 import { Product, FooterBanner, HeroBanner } from '../components'
 
+
+
 const Home = ({ products, bannerData }) => {
+
+  /* masonry */
+  /* const productsElements = products?.map((product) =>  <Product key={product._id} product={product}/>)
+  var grid = document.querySelector('.mGrid');
+  var msnry = new Masonry( grid, {
+    columnWidth: 500
+  });
+  msnry.layout(); */
+
+  /* typed.js */
+  /* var typed = new Typed('#typed', {
+    stringsElement: '#typed-strings'
+  }); */
+
   return (
     <>
     {/* hero banner here */}
       <HeroBanner heroBanner={ bannerData.length && bannerData[0]} />
       {console.log(bannerData)}
 
-      <div className="text-center mx-[40px] text-primary    ">
+      <div className="text-center px-[40px] text-primary  py-2 bg-bgLight  ">
         <h2 className="text-[40px] font-bold ">Best Selling Products</h2>
-        <p className="text-[16px] text-slate-800  ">Keyboards for any type of strokes</p>
+        <p className="text-[16px]  text-primary-dark ">Keyboards for any type of strokes</p>
       </div>
 
 
     {/* Products fetched here */}
-      <div>
-        { products?.map((product) => product.name ) }
+    { }
+      <div className="flex flex-wrap gap-4 pt-5 justify-center w-full bg-bgLight " >
+        { products?.map((product) => <Product key={product._id} product={product} /> ) }
       </div>
+
+    {/* Masonry Layout w-[270px] */}
+
+      {/* <div className="text-center  mx-[40px] text-secondary my-8 ">
+        <h2 className="text-[40px] font-bold ">Best Selling Products</h2>
+        <p className="text-[16px]  text-secondary-light ">Keyboards for any type of strokes</p>
+      </div>
+
+      <Layout 
+        minWidth={270}
+        colCount={5}
+        gap={0}
+        className=""
+        items ={ products?.map((product) => <Product key={product._id} product={product} /> ) } 
+      >
+      
+      </Layout> */}
+
+    {/* typed.js */}
+    {/* <div id="typed-strings">
+      <p>Typed.js is a <strong>JavaScript</strong> library.</p>
+      <p>It <em>types</em> out sentences.</p>
+    </div>
+    <span id="typed"></span> */}
+
     
     {/* Footer */}
-    <FooterBanner />
+    <FooterBanner footerBanner={ bannerData && bannerData[0]} />
     
     </>
   )
