@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import { client, urlFor } from '../../lib/client'
 import {HiMinus, HiPlus, HiStar, HiOutlineStar} from 'react-icons/hi2'
 import { Product } from '../../components';
+import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ product, products }) => {
 
     const { image, name, details, price } = product;
     const [index, setIndex] = useState(0);
+    const { incQty, decQty, qty, onAdd } = useStateContext();
 
     return (
     <div>
@@ -47,18 +49,18 @@ const ProductDetails = ({ product, products }) => {
                 <p className="mt-1">{details}</p>
                 <p className="mt-8 font-bold text-secondary text-2xl ">${price}</p>{/* price */}
 
-                <div className="mt-2 flex gap-5 items-center" >{/* Quantity */}
+                <div className="mt-2 flex gap-5 items-center select-none" >{/* Quantity */}
                     <h3 className="text-lg font-medium  text-primary-dark" >Quantity: </h3>
                     <span className="flex items-center w-auto bg-white border border-primary-dark rounded p-1" >{/* qty desc */}
-                        <span onClick="" className="flex shrink-0 items-center justify-center cursor-pointer  border-r  text-bgDark hover:text-primary  w-8 h-8 rounded-l transition-all"><HiMinus/></span>
-                        <span onClick="" className="flex shrink-0 items-center justify-center cursor-pointer text-primary-dark w-8 h-8 ">0</span>
-                        <span onClick="" className="flex shrink-0 items-center justify-center cursor-pointer border-l  text-bgDark hover:text-primary  w-8 h-8 rounded-r transition-all"><HiPlus/></span>
+                        <span onClick={decQty} className="flex shrink-0 items-center justify-center cursor-pointer  border-r  text-bgDark hover:text-primary  w-8 h-8 rounded-l transition-all"><HiMinus/></span>
+                        <span className="flex shrink-0 items-center justify-center cursor-pointer text-primary-dark w-8 h-8 ">{qty}</span>
+                        <span onClick={incQty} className="flex shrink-0 items-center justify-center cursor-pointer border-l  text-bgDark hover:text-primary  w-8 h-8 rounded-r transition-all"><HiPlus/></span>
                     </span>
                 </div>
 
                 {/* buttons */}
-                <div className="w-full flex flex-wrap gap-4 transition-all" >
-                    <button type="button" className="py-4 px-6 w-[220px] mt-10 text-xl cursor-pointer hover:scale-105 font-medium border bg-white border-secondary text-secondary hover:border-secondary-dark hover:text-secondary-dark hover:bg-secondary-light hover:font-semibold transition-all rounded-lg " >Add to cart</button>
+                <div className="w-full flex flex-wrap gap-4 transition-all select-none" >
+                    <button type="button" onClick={() => { onAdd(product, qty) }} className="py-4 px-6 w-[220px] mt-10 text-xl cursor-pointer hover:scale-105 font-medium border bg-white border-secondary text-secondary hover:border-secondary-dark hover:text-secondary-dark hover:bg-secondary-light hover:font-semibold transition-all rounded-lg " >Add to cart</button>
                     <button type="button" className="py-4 px-6 w-[220px] mt-10 text-xl cursor-pointer hover:scale-105 font-medium border bg-secondary-dark border-secondary-dark text-secondary-light hover:border-secondary hover:text-white hover:bg-secondary hover:font-semibold transition-all rounded-lg " >Buy now</button>
                 </div>
 
