@@ -10,6 +10,9 @@ export const StateContext = ( {children} ) => {
     const [totalQuantities, setTotalQuantities] = useState(0);
     const [qty, setQty] = useState(1);
 
+    let foundProduct;
+    let index;
+
     const incQty = () => {
         setQty((prevQty) => prevQty + 1);
     }
@@ -45,6 +48,41 @@ export const StateContext = ( {children} ) => {
         console.log(cartItems);
     }
 
+    const onRemove = (id) => {
+        foundProduct = cartItems.find((item) => item._id === id);
+        let newCartItems = cartItems.filter((item) => item._id !== id);
+        
+        setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
+        setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - foundProduct.quantity);
+        setCartItems(newCartItems);
+        toast.success(`${foundProduct.quantity} ${foundProduct.name} removed from the cart.`);
+    }
+
+    const toggleCartItemQuantity = (id, value) => {
+        foundProduct = cartItems.find((item) => item._id === id);
+        index = cartItems.findIndex((product) => product._id === id);
+        let newCartItems = cartItems;
+        // let newCartItems = cartItems.filter((item) => item._id !== id)
+
+        if(value === 'inc'){
+            newCartItems.splice(index, 1, { ...foundProduct, quantity: foundProduct.quantity + 1 } );
+            setCartItems(newCartItems);
+            setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price);
+            setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1);
+        }
+        else if(value === 'dec'){
+            if(foundProduct.quantity > 1){
+                newCartItems.splice(index, 1, { ...foundProduct, quantity: foundProduct.quantity - 1 } );
+                setCartItems(newCartItems);
+                setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price);
+                setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1);
+            }
+            else {
+                onRemove(id);
+            }
+        }
+    }
+
     return (
         <Context.Provider
             value={{
@@ -56,7 +94,9 @@ export const StateContext = ( {children} ) => {
                 qty,
                 incQty,
                 decQty,
-                onAdd
+                onAdd,
+                onRemove,
+                toggleCartItemQuantity
             }}
         >
             {children}
