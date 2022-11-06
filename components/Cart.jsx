@@ -6,10 +6,30 @@ import { TiDeleteOutline } from 'react-icons/ti';
 
 import { useStateContext } from '../context/StateContext';
 import { urlFor } from '../lib/client';
+import getStripe from '../lib/getStripe';
 
 const Cart = () => {
   const cartRef = useRef();
   const { totalPrice, totalQuantities, cartItems, showCart, setShowCart, toggleCartItemQuantity, onRemove } = useStateContext();
+
+  const handleCheckout = async () => {
+    const stripe = await getStripe();
+
+    const response = await fetch('/api/stripe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(cartItems)
+    });
+
+    if(response.statusCode === 500) return;
+
+    const data = await response.json();
+    toast.loading('Redirecting...');
+
+    stripe.redirectToCheckout({ sessionId: data.id });
+  }
 
   return (
     <div className="w-[100vw] bg-bgDark/50 backdrop-blur-xl fixed top-0 right-0 z-[100] transition-all " ref={cartRef} >{/* cart wrapper */}
@@ -65,7 +85,7 @@ const Cart = () => {
               <h3 className="text-xl font-bold text-primary" >${totalPrice}</h3>
             </div>
             <div className="w-full flex justify-center">
-              <button type="button" onClick={() => { setShowCart(false) }} className="py-3 px-5 w-[300px] m-auto uppercase mt-10 text-xl cursor-pointer hover:scale-105 font-semibold border bg-white border-secondary text-secondary hover:border-secondary-dark hover:text-secondary-dark hover:bg-secondary-light hover:font-semibold transition-all rounded-lg ">Checkout with Stripe</button>
+              <button type="button" onClick={handleCheckout} className="py-3 px-5 w-[300px] m-auto uppercase mt-10 text-xl cursor-pointer hover:scale-105 font-semibold border bg-white border-secondary text-secondary hover:border-secondary-dark hover:text-secondary-dark hover:bg-secondary-light hover:font-semibold transition-all rounded-lg ">Checkout with Stripe</button>
             </div>
           </div>
         )}
