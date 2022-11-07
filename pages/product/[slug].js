@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { client, urlFor } from '../../lib/client'
 import {HiMinus, HiPlus, HiStar, HiOutlineStar} from 'react-icons/hi2'
 import { Product } from '../../components';
@@ -8,7 +8,16 @@ const ProductDetails = ({ product, products }) => {
 
     const { image, name, details, price } = product;
     const [index, setIndex] = useState(0);
-    const { incQty, decQty, qty, onAdd } = useStateContext();
+    const { incQty, decQty, setQty, qty, onAdd, setShowCart } = useStateContext();
+    
+    useEffect(() => {
+        setQty(1);
+    }, []);
+
+    const handleBuyNow = () => {
+        onAdd(product, qty);
+        setShowCart(true);
+    }
 
     return (
     <div>
@@ -61,7 +70,7 @@ const ProductDetails = ({ product, products }) => {
                 {/* buttons */}
                 <div className="w-full flex flex-wrap gap-4 transition-all select-none" >
                     <button type="button" onClick={() => { onAdd(product, qty) }} className="py-4 px-6 w-[220px] mt-10 text-xl cursor-pointer hover:scale-105 font-medium border bg-white border-secondary text-secondary hover:border-secondary-dark hover:text-secondary-dark hover:bg-secondary-light hover:font-semibold transition-all rounded-lg " >Add to cart</button>
-                    <button type="button" className="py-4 px-6 w-[220px] mt-10 text-xl cursor-pointer hover:scale-105 font-medium border bg-secondary-dark border-secondary-dark text-secondary-light hover:border-secondary hover:text-white hover:bg-secondary hover:font-semibold transition-all rounded-lg " >Buy now</button>
+                    <button type="button" onClick={handleBuyNow}  className="py-4 px-6 w-[220px] mt-10 text-xl cursor-pointer hover:scale-105 font-medium border bg-secondary-dark border-secondary-dark text-secondary-light hover:border-secondary hover:text-white hover:bg-secondary hover:font-semibold transition-all rounded-lg " >Buy now</button>
                 </div>
 
             </div>
