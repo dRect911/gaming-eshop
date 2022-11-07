@@ -3,6 +3,8 @@ import Head from 'next/head'
 import Navbar from './Navbar'
 import Footer from './Footer'
 
+//TODO gotta favicon to NEXT 13 one
+
 const Layout = ( {children} ) => {
   return (
     <div className=" bg-bgLight " >{/* layout */}
