@@ -22,7 +22,7 @@ const Layout = ( {children} ) => {
         <Navbar />
       </header>
 
-      <main className="w-full px-4 md:px-2  xl:max-w-[1600px] p-[10px] m-auto ">{/* main-container */}
+      <main className="w-full px-4 lg:px-3  xl:max-w-[1600px] p-[10px] m-auto ">{/* main-container */}
         {children}
       </main>
 
