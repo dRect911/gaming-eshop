@@ -4,6 +4,12 @@ import Navbar from './Navbar'
 import Footer from './Footer'
 
 //TODO gotta favicon to NEXT 13 one
+//TODO auth
+//TODO pagination
+//TODO search feature
+//TODO discounts
+//TODO "add to cart" button on product card
+//TODO dark mode
 
 const Layout = ( {children} ) => {
   return (
@@ -16,7 +22,7 @@ const Layout = ( {children} ) => {
         <Navbar />
       </header>
 
-      <main className="w-full px-4 md:px-2  xl:max-w-[1600px] p-[10px] m-auto ">{/* main-container */}
+      <main className="w-full px-4 lg:px-3  xl:max-w-[1600px] p-[10px] m-auto ">{/* main-container */}
         {children}
       </main>
 
