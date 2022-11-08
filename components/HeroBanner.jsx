@@ -12,7 +12,7 @@ const HeroBanner = ({ heroBanner }) => {
             <p className="text-[16px] text-center md:text-start md:text-[20px] text-primary-dark transition-all" >{heroBanner.smallText}</p>
             <h3 className="text-[3rem] md:text-[4rem] text-center md:text-start mt-2 md:mt-1 font-semibold text-bgLight transition-all" >{heroBanner.midText}</h3>
             <h1 className="text-[6em] sm:text-[8em] md:text-[10em] text-center md:text-start md:-ml-[20px] font-bold uppercase text-primary transition-all" >{heroBanner.largeText1}</h1>
-            <img src={urlFor(heroBanner.image)} alt="keyboard" className="absolute top-72 sm:top-64 md:top-32 lg:top-12 xl:top-0 right-[20%] md:right-[5%] lg:right-[10%] xl:right-[20%] h-44 sm:h-56 md:h-[280px] lg:h-[350px] xl:h-[450px] -translate-x-8 group-hover:translate-x-8 hover:scale-105 hover:-skew-x-2 hover:skew-y-4 transition-all duration-1000 "  /> {/* hero-banner-image */}
+            <img src={urlFor(heroBanner.image)} alt="keyboard" className="absolute top-72 sm:top-64 md:top-32 lg:top-12 xl:top-0 right-[20%] md:right-[5%] lg:right-[10%] xl:right-[20%] h-44 sm:h-56 md:h-[280px] lg:h-[350px] xl:h-[450px] -translate-x-8 group-hover:translate-x-8 xl:group-hover:translate-x-16 hover:scale-105 hover:-skew-x-2 hover:skew-y-4 transition-all duration-1000 "  /> {/* hero-banner-image */}
 
             <div>
                 <Link href={`/product/${heroBanner.product}`} >
