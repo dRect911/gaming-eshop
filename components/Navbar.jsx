@@ -8,7 +8,7 @@ const Navbar = () => {
   const { showCart, setShowCart, totalQuantities } = useStateContext();
 
   return (
-    <div className="flex justify-between items-center h-16 p-4 w-full fixed top-0 shadow-sm shadow-primary/25 bg-bgLight/80 backdrop-blur-md z-50  mb-4 " >{/* navbar container */}
+    <div className="flex justify-between items-center h-14 md:h-16 p-4 w-full fixed top-0 shadow-sm shadow-primary/25 bg-bgLight/80 backdrop-blur-md z-50  mb-4 " >{/* navbar container */}
       <p className="font-black text-2xl text-primary-dark hover:translate-x-2 transition-all duration-500 " >{/* logo */}
         <Link href="/">G-SHOP</Link>
       </p>

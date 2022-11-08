@@ -33,9 +33,9 @@ const Home = ({ products, bannerData }) => {
       <HeroBanner heroBanner={ bannerData.length && bannerData[0]} />
       {console.log(bannerData)}
 
-      <div className="text-center px-[40px] text-primary  py-2 bg-bgLight  ">
-        <h2 className="text-[40px] font-bold ">Best Selling Products</h2>
-        <p className="text-[16px]  text-primary-dark ">Keyboards for any type of strokes</p>
+      <div className="text-center px-[40px] text-primary mt-2 py-2 bg-bgLight  ">
+        <h2 className="text-[26px] sm:text-[33px] md:text-[40px] font-bold transition-all">Best Selling Products</h2>
+        <p className="text-[14px] md:text-[16px] text-primary-dark ">Keyboards for any type of strokes</p>
       </div>
 
 
