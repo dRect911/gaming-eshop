@@ -22,7 +22,7 @@ const HeroBanner = ({ heroBanner }) => {
                 </Link>
                 <div className="absolute w-[250px] sm:w-[300px] md:w-[350px] flex flex-col right-[10%] bottom-[5%]  " >
                     <h5 className="text-primary-dark mb-3 text-sm md:text-[16px] lg:text-[18px] font-bold self-end  " >Description</h5>
-                    <p className="text-primary-dark text-[12px] sm:text-[14px] md:text-normal lg:text-[16px] font-extralight text-end " >{heroBanner.desc}</p>
+                    <p className="text-primary-dark text-[12px] sm:text-[14px] md:text-normal lg:text-[16px] font-light text-end " >{heroBanner.desc}</p>
                 </div>
             </div>
 
