@@ -22,10 +22,10 @@ const ProductDetails = ({ product, products }) => {
 
     return (
     <div className="w-full" >
-        <div className="w-full flex flex-wrap md:flex-nowrap gap-10 justify-between md:m-10 mt-16 text-bgDark ">{/* product detail container */}
-            <div>
+        <div className="w-full flex flex-wrap md:flex-nowrap gap-10 justify-between mt-16 text-bgDark ">{/* product detail container */}
+            <div className="md:pl-6" >
                 <div className="">{/* image container */}
-                    <img src={urlFor(image[index])} alt="product image" className="bg-bgLight hover:bg-secondary-light border border-secondary-light rounded-xl min-h-[200px] max-w-full md:min-h-[400px] md:max-w-[600px]  md:shrink-0 transition-all " />
+                    <img src={urlFor(image[index])} alt="product image" className="bg-bgLight hover:bg-secondary-light border border-secondary-light rounded-xl min-h-[200px] max-w-full md:min-h-[300px] md:max-w-[450px] lg:min-h-[400px] lg:max-w-[600px] md:shrink-0 transition-all " />
                 </div>
 
                 {/* mini images */}
@@ -42,7 +42,7 @@ const ProductDetails = ({ product, products }) => {
                 </div>
                 
             </div>
-            <div className="max-w-[500px] py-4 md:pr-6 " >{/* products details desc */}
+            <div className="max-w-full md:max-w-[500px] py-4 md:pr-6 " >{/* products details desc */}
                 <h1 className="text-2xl font-semibold text-primary-dark" >{name}</h1>
 
                 <div className="flex gap-1 items-center">{/* reviews */}
@@ -58,7 +58,7 @@ const ProductDetails = ({ product, products }) => {
 
                 <h4 className="text-lg font-medium mt-2">Details: </h4>
                 <p className="mt-1">{details}</p>
-                <p className="mt-8 font-bold text-secondary text-2xl ">${price}</p>{/* price */}
+                <p className="mt-8 font-bold text-secondary text-2xl sm:text-3xl md:text-2xl transition-all ">${price}</p>{/* price */}
 
                 <div className="mt-2 flex gap-5 items-center select-none" >{/* Quantity */}
                     <h3 className="text-lg font-medium  text-primary-dark" >Quantity: </h3>

@@ -72,7 +72,7 @@ const Cart = () => {
                       <span onClick={() => {toggleCartItemQuantity(item._id, 'inc') }} className="flex shrink-0 items-center justify-center cursor-pointer border-l  text-bgDark hover:text-primary  w-6 md:w-8 h-6 md:h-8 rounded-r transition-all"><HiPlus/></span>
                     </span>
                   </div>
-                  <button type="button" onClick={() => { onRemove(item._id) }} className="text-lg md:text-2xl text-secondary cursor-pointer hover:scale-105 transition-all ">
+                  <button type="button" onClick={() => { onRemove(item._id) }} className="text-lg sm:text-xl md:text-2xl text-secondary cursor-pointer hover:scale-105 transition-all ">
                     <TiDeleteOutline />
                   </button>
                 </div>
@@ -88,7 +88,7 @@ const Cart = () => {
               <h3 className="text-lg md:text-xl font-bold text-primary" >${totalPrice}</h3>
             </div>
             <div className="w-full flex justify-center">
-              <button type="button" onClick={handleCheckout} className="py-2 md:py-3 px-3 md:px-5 w-[260px] md:w-[300px] m-auto uppercase mt-6 md:mt-10 text-lg md:text-xl cursor-pointer hover:scale-105 font-semibold border bg-white border-secondary text-secondary hover:border-secondary-dark hover:text-secondary-dark hover:bg-secondary-light hover:font-semibold transition-all rounded-lg ">Checkout with Stripe</button>
+              <button type="button" onClick={handleCheckout} className="py-2 md:py-3 px-3 md:px-5 w-[260px] sm:w-[300px] m-auto uppercase mt-6 md:mt-10 text-lg md:text-xl cursor-pointer hover:scale-105 font-semibold border bg-white border-secondary text-secondary hover:border-secondary-dark hover:text-secondary-dark hover:bg-secondary-light hover:font-semibold transition-all rounded-lg ">Checkout with Stripe</button>
             </div>
           </div>
         )}
