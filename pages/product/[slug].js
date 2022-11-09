@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from 'react'
 import { client, urlFor } from '../../lib/client'
 import {HiMinus, HiPlus, HiStar, HiOutlineStar} from 'react-icons/hi2'
@@ -20,27 +21,28 @@ const ProductDetails = ({ product, products }) => {
     }
 
     return (
-    <div>
-        <div className="flex gap-10 justify-between m-10 mt-16 text-bgDark ">{/* product detail container */}
+    <div className="w-full" >
+        <div className="w-full flex flex-wrap md:flex-nowrap gap-10 justify-between md:m-10 mt-16 text-bgDark ">{/* product detail container */}
             <div>
                 <div className="">{/* image container */}
-                    <img src={urlFor(image[index])} className="bg-bgLight hover:bg-secondary-light border border-secondary-light rounded-xl min-h-[400px] max-w-[600px] shrink-0 transition-all " />
+                    <img src={urlFor(image[index])} alt="product image" className="bg-bgLight hover:bg-secondary-light border border-secondary-light rounded-xl min-h-[200px] max-w-full md:min-h-[400px] md:max-w-[600px]  md:shrink-0 transition-all " />
                 </div>
 
                 {/* mini images */}
-                <div className="flex gap-2 mt-5" >
+                <div className="flex flex-wrap gap-2 mt-5" >
                     {image?.map((item, i) => (
                         <img 
                         key={i} 
+                        alt=""
                         src={urlFor(item)}
-                        className={` ${ i === index ? 'border-secondary bg-secondary' : 'border-secondary-light bg-secondary-light' } rounded-lg cursor-pointer border  max-w-[70px] max-h-[70px] transition-all`}
+                        className={` ${ i === index ? 'border-secondary bg-secondary' : 'border-secondary-light bg-secondary-light' } rounded-lg cursor-pointer border max-w-[50px] max-h-[50px] md:max-w-[70px] md:max-h-[70px] transition-all`}
                         onMouseEnter={() => setIndex(i) }
                         />
                     ))}
                 </div>
                 
             </div>
-            <div className="max-w-[500px] py-4 " >{/* products details desc */}
+            <div className="max-w-[500px] py-4 md:pr-6 " >{/* products details desc */}
                 <h1 className="text-2xl font-semibold text-primary-dark" >{name}</h1>
 
                 <div className="flex gap-1 items-center">{/* reviews */}
@@ -68,7 +70,7 @@ const ProductDetails = ({ product, products }) => {
                 </div>
 
                 {/* buttons */}
-                <div className="w-full flex flex-wrap gap-4 transition-all select-none" >
+                <div className="w-full flex flex-wrap gap-4 justify-around  transition-all select-none" >
                     <button type="button" onClick={() => { onAdd(product, qty) }} className="py-4 px-6 w-[220px] mt-10 text-xl cursor-pointer hover:scale-105 font-medium border bg-white border-secondary text-secondary hover:border-secondary-dark hover:text-secondary-dark hover:bg-secondary-light hover:font-semibold transition-all rounded-lg " >Add to cart</button>
                     <button type="button" onClick={handleBuyNow}  className="py-4 px-6 w-[220px] mt-10 text-xl cursor-pointer hover:scale-105 font-medium border bg-secondary-dark border-secondary-dark text-secondary-light hover:border-secondary hover:text-white hover:bg-secondary hover:font-semibold transition-all rounded-lg " >Buy now</button>
                 </div>
@@ -78,7 +80,7 @@ const ProductDetails = ({ product, products }) => {
         </div>
 
         <div className="mt-32  " >{/* maylike warapper */}
-            <h2 className="m-12 text-primary-dark text-2xl " >You may also like</h2>
+            <h2 className="m-12 text-primary-dark text-2xl text-center font-semibold " >You may also like</h2>
             <div className="w-full h-[400px] relative overflow-x-hidden "> {/* maarquee text: text-[30px] text-semibold mx-16 text-secondary */}
                 <div className="flex gap-4 mt-5 justify-center w-[180%] will-change-transform absolute whitespace-nowrap animate-marquee  pause " >{/* products container */}
                     {products?.map((product) => <Product key={product._id} product={product} /> )}
