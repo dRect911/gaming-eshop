@@ -7,7 +7,7 @@ import { urlFor } from '../lib/client'
 
 const HeroBanner = ({ heroBanner }) => {
   return (
-    <div className="relative rounded-2xl w-full h-[500px] py-6 md:py-10 px-6 md:px-[70px] lg:px-[100px] mt-16 md:mt-20 bg-primary-light leading-none group " >
+    <div className="relative rounded-2xl w-full h-[500px] py-6 md:py-10 px-2 md:px-[70px] lg:px-[100px] mt-16 md:mt-20 bg-primary-light leading-none group " >
         <div>
             <p className="text-[16px] text-center md:text-start md:text-[20px] text-primary-dark transition-all" >{heroBanner.smallText}</p>
             <h3 className="text-[3rem] md:text-[4rem] text-center md:text-start mt-2 md:mt-1 font-semibold text-bgLight transition-all" >{heroBanner.midText}</h3>
