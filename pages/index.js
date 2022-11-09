@@ -33,15 +33,15 @@ const Home = ({ products, bannerData }) => {
       <HeroBanner heroBanner={ bannerData.length && bannerData[0]} />
       {console.log(bannerData)}
 
-      <div className="text-center px-[40px] text-primary mt-2 py-2 bg-bgLight  ">
+      <div className="text-center px-[40px] text-primary dark:text-primary-light mt-2 py-2 bg-bgLight dark:bg-bgDark  ">
         <h2 className="text-[26px] sm:text-[33px] md:text-[40px] font-bold transition-all">Best Selling Products</h2>
-        <p className="text-[14px] md:text-[16px] text-primary-dark ">Keyboards for any type of strokes</p>
+        <p className="text-[14px] md:text-[16px] text-primary-dark dark:text-primary-light">Keyboards for any type of strokes</p>
       </div>
 
 
     {/* Products fetched here */}
     { }
-      <div className="flex flex-wrap gap-4 pt-5 justify-center w-full bg-bgLight " >
+      <div className="flex flex-wrap gap-4 pt-5 justify-center w-full bg-bgLight dark:bg-bgDark " >
         { products?.map((product) => <Product key={product._id} product={product} /> ) }
       </div>
 
