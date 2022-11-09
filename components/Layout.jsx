@@ -14,7 +14,7 @@ import Footer from './Footer'
 
 const Layout = ( {children} ) => {
   return (
-    <div className=" bg-bgLight " >{/* layout */}
+    <div className=" bg-bgLight dark:bg-bgDark " >{/* layout */}
       <Head>
         <title>G-SHOP</title>
       </Head>
