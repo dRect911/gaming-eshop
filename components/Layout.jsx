@@ -3,11 +3,12 @@ import Head from 'next/head'
 import Navbar from './Navbar'
 import Footer from './Footer'
 
-//TODO gotta favicon to NEXT 13 one
+//TODO gotta change favicon to NEXT 13 one
 //TODO auth
 //TODO pagination
 //TODO search feature
 //TODO discounts
+//TODO reviews (stars at the start then full comments)
 //TODO "add to cart" button on product card
 //TODO dark mode
 
