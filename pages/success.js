@@ -21,14 +21,14 @@ const Success = () => {
 
     return (
     <div className="w-full h-[90vh] flex items-center" >{/* succes wrapper */}
-        <div className="w-[1000px] h-1/2 m-auto bg-primary-light p-12 rounded-xl flex flex-col items-center justify-center " >{/* success */}
-            <p className="text-[70px] text-green-500  " >{/* icon */}
+        <div className="w-[1000px] h-3/4 sm:h-2/3 md:h-1/2 m-auto bg-primary-light p-6 md:p-12 rounded-xl flex flex-col items-center justify-center transition-all" >{/* success */}
+            <p className="text-[70px] text-green-500  transition-all" >{/* icon */}
                 <BsBagCheckFill />
             </p>
-            <h1 className="text-3xl font-semibold text-primary-dark mt-8" >Thank you for your order!</h1>
-            <p className="text-xl text-bgDark mt-2" >Check your email inbox for the receipt.</p>
-            <p className="text-xl text-bgDark mt-2" >
-                If you have any questions, please email <span className="text-secondary font-semibold underline" ><Link href="mailto:g-shop@example.com" >g-shop@example.com</Link></span>
+            <h1 className="text-xl sm:text-2xl md:text-3xl text-center font-semibold text-primary-dark mt-8 transition-all" >Thank you for your order!</h1>
+            <p className="text-lg md:text-xl text-bgDark mt-2 transition-all" >Check your email inbox for the receipt.</p>
+            <p className="text-[14px] md:text-xl text-bgDark mt-2 transition-all" >
+                If you have any questions, please email <span className="text-secondary font-semibold underline transition-all" ><Link href="mailto:g-shop@example.com" >g-shop@example.com</Link></span>
             </p>
 
             <Link href="/">
