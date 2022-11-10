@@ -13,3 +13,5 @@ export const authOptions = {
 }
 
 export default NextAuth(authOptions)
+
+//TODO next auth sanity package
